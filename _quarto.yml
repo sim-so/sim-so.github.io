@@ -3,12 +3,13 @@ project:
   output-dir: docs
 
 website:
-  title: "blog"
+  title: "sim-so.github.io"
   navbar:
     right:
-      - about.qmd
       - text: "Home"
         file: index.qmd
+      - about.qmd
+      - posts/index.qmd
       - icon: github
         href: https://github.com/
       - icon: twitter
