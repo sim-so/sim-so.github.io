@@ -1,7 +1,12 @@
 [
   {
+    "listing": "/posts/index.html",
+    "items": []
+  },
+  {
     "listing": "/index.html",
     "items": [
+      "/posts/index.html",
       "/posts/first-post/index.html"
     ]
   }
