@@ -2,7 +2,7 @@
 title: "My First Blog"
 author: "Sohyun"
 date: "2023-07-25"
-categories: [post, writing, blog]
+categories: [writing]
 ---
 
 This is the first post in a Quarto blog. Welcome!
