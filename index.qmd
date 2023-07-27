@@ -1,7 +1,7 @@
 ---
 title: "Line by Line"
 listing:
-  contents: posts
+  contents: blog/posts
   sort: "date desc"
   type: default
   categories: true

@@ -5,11 +5,12 @@ project:
 website:
   title: "sim-so.github.io"
   navbar:
-    right:
+    left:
       - text: "Home"
         file: index.qmd
+      - blog/index.qmd
       - about.qmd
-      - posts/index.qmd
+    right:
       - icon: github
         href: https://github.com/
       - icon: twitter

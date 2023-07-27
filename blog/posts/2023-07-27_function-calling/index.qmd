@@ -1,0 +1,7 @@
+---
+title: "openai Function Calling 활용하기"
+author: "sim-so"
+date: "2023-07-27"
+categories: [NLP]
+draft: true
+---
