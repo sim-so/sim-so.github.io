@@ -1,13 +1,14 @@
 [
   {
-    "listing": "/posts/index.html",
-    "items": []
-  },
-  {
     "listing": "/index.html",
     "items": [
-      "/posts/index.html",
-      "/posts/first-post/index.html"
+      "/blog/posts/2023-07-25_semantle/index.html"
+    ]
+  },
+  {
+    "listing": "/blog/index.html",
+    "items": [
+      "/blog/posts/2023-07-25_semantle/index.html"
     ]
   }
 ]
