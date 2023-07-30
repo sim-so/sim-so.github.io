@@ -1,13 +1,15 @@
 [
   {
-    "listing": "/index.html",
+    "listing": "/blog/index.html",
     "items": [
+      "/blog/posts/2023-07-30_hf-agent-01/index.html",
       "/blog/posts/2023-07-25_semantle/index.html"
     ]
   },
   {
-    "listing": "/blog/index.html",
+    "listing": "/index.html",
     "items": [
+      "/blog/posts/2023-07-30_hf-agent-01/index.html",
       "/blog/posts/2023-07-25_semantle/index.html"
     ]
   }
