@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="sim-so">
+<meta name="dcterms.date" content="2023-07-25">
+
+<title>sim-so.github.io - semantle with GPT-3.5</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">sim-so.github.io</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../blog/index.html" rel="" target="">
+ <span class="menu-text">Posts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about.html" rel="" target="">
+ <span class="menu-text">about</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">semantle with GPT-3.5</h1>
+            <p class="subtitle lead">게임을 진행하기 위한 function call과 프롬프트</p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">NLP</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>sim-so </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">July 25, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block page-columns page-full" id="quarto-document-content">
+
+
+
+
+<p>GPT와 원만하게 대화로 해결했습니다. 🤝</p>
+<blockquote class="blockquote">
+<p>지금 <a href="https://huggingface.co/spaces/sim-so/semantle-jp-with-chat">Hugging Face Space</a>에서 플레이해볼 수 있습니다. <img src="Screenshot_01.png" class="img-fluid" alt="demo"></p>
+</blockquote>
+<section id="지난-이야기-그-동안의-결과물" class="level2">
+<h2 class="anchored" data-anchor-id="지난-이야기-그-동안의-결과물">0. 지난 이야기: 그 동안의 결과물</h2>
+<ul>
+<li><a href="https://semantoru.com/">일본어 버전 릴리즈</a></li>
+<li>정답 단어 목록 업데이트</li>
+<li>유사도 기반 힌트 기능 구현</li>
+</ul>
+</section>
+<section id="new-주고받기-모드" class="level2">
+<h2 class="anchored" data-anchor-id="new-주고받기-모드">1. [NEW] 주고받기 모드</h2>
+<p><a href="https://flowgpt.com/bounty">FlowGPT</a>와 <a href="https://www.aicrowd.com/challenges/hackaprompt-2023">Hackaprompt</a>에서 복잡한 태스크를 위한 다양한 프롬프트를 보며, semantle의 진행에도 활용해보기로 했습니다.</p>
+</section>
+<section id="function-calling과-프롬프트" class="level2">
+<h2 class="anchored" data-anchor-id="function-calling과-프롬프트">2. function calling과 프롬프트</h2>
+<section id="function-calling" class="level3">
+<h3 class="anchored" data-anchor-id="function-calling">2.1. function calling</h3>
+<p>게임 진행에 필요한 데이터나 게임 규칙을 한 번에 모두 전달하면 프롬프트가 너무 길어집니다. 토큰을 낭비하게 될 뿐더러, 모델이 내용을 파악하기도 어려워집니다.</p>
+<p>function calling를 통해, 모델이 함수를 이용하여 필요한 데이터를 가져올 수 있도록 만들었습니다. 단어 유사도를 가져오는 일 외에, 정답 단어를 확인하거나 규칙을 읽는 일도 함수로 지정했습니다.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>guess_word <span class="op">=</span> {<span class="st">"name"</span>: <span class="st">"guess_word"</span>,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                <span class="st">"description"</span>: <span class="st">"Use this function to check if a guessed word is the correct answer or not, and if incorrect, calculate a score and a rank of the guess word."</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                <span class="st">"parameters"</span>: {</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"type"</span>: <span class="st">"object"</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"properties"</span>: {</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"word"</span>: {</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"type"</span>: <span class="st">"string"</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"description"</span>: <span class="st">"A single Japanese word to guess, which is can be a noun, verb, adverb or adjective. e.g. 空, 近い, 行く, etc."</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>                            },</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>                    },</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"required"</span>: [<span class="st">"word"</span>]</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>                }}</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>lookup_answer <span class="op">=</span> {<span class="st">"name"</span>: <span class="st">"lookup_answer"</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>                <span class="st">"description"</span>: <span class="st">"Use this function to check the correct answer of today's puzzle."</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>                <span class="st">"parameters"</span>: {</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"type"</span>: <span class="st">"object"</span>,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"properties"</span>: {},</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>                }}</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>read_rule <span class="op">=</span> {<span class="st">"name"</span>: <span class="st">"read_rule"</span>,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>                <span class="st">"description"</span>: <span class="st">"Use this function to read the game rule for clarification of your response."</span>,</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>                <span class="st">"parameters"</span>: {</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"type"</span>: <span class="st">"object"</span>,</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"properties"</span>: {},</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>                }}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>더불어 한 번의 호출에 여러 함수를 필요한 만큼 불러올 수 있도록 함수를 실행하게 하는 코드는 recursive하게 작성했습니다.</p>
+</section>
+<section id="프롬프트" class="level3">
+<h3 class="anchored" data-anchor-id="프롬프트">2.2. 프롬프트</h3>
+<p>보통 assistant의 역할, 수행할 작업 내용, 유저 입력 형식 등을 항목으로 구성하여 프롬프트를 작성합니다. semantle이란 게임은 어떤 fine-tuning도 되지 않은 LLM에게는 낯선 내용이기 때문에, 게임의 진행 방식을 상세히 알려줄 필요가 있었습니다. 또한, 유저는 다양한 의도의 메시지를 전달할 수 있어 복잡한 작업이 됩니다.</p>
+<p>모델이 게임을 잘 이해할 수 있도록 2가지 방식으로 프롬프트를 작성했습니다. 아래에는 한국어로 작성되어 있지만, 실제로는 일본어로 작성했습니다.</p>
+<ol type="1">
+<li><p>작업 과정을 상세하게</p>
+<ul>
+<li>유저의 메시지를 받은 뒤 어떤 사고 과정을 거쳐야 하는지 상황별로 상세히 전달합니다.</li>
+<li>게임 소개 내용은 아래 메시지에 <strong>추가하여 별도로</strong> 전달했습니다.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+assistant의 작업 과정
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>발화 의도 파악: 유저의 메시지를 읽고 다음 중 어떤 것을 원하는지 파악합니다.
+<ol type="i">
+<li>정답 추측<br>
+</li>
+<li>힌트 제공<br>
+</li>
+<li>정답 확인</li>
+</ol></li>
+<li>게임 진행
+<ol type="i">
+<li>정답을 추측하는 경우, 사전 정의된 함수를 사용해 추측한 단어의 점수와 순위를 구합니다.
+<ol type="A">
+<li>점수와 순위가 없으면 추측 기록에 추가하지 않고, 게임에 없는 단어라고 안내합니다.</li>
+<li>그렇지 않으면 추측 기록에 반환 결과를 추가하고,
+<ol type="a">
+<li>순위가 ’정답!’인 경우, 정답을 맞혔다고 안내합니다.<br>
+</li>
+<li>그렇지 않으면 업데이트 된 추측 기록을 보고 플레이 상황에 대해 코멘트합니다.<br>
+</li>
+</ol></li>
+</ol></li>
+<li>힌트를 원하는 경우,
+<ol type="A">
+<li>‘어떠한’ 힌트인지 제시되었다면 그에 맞춰 제공합니다.</li>
+<li>막연히 힌트를 요구한다면 적당히 설명해줍니다.<br>
+</li>
+</ol></li>
+<li>정답 확인을 요구하는 경우, A. 정답을 알면 게임이 끝나므로, 포기하려는 것인지 확인합니다.
+<ol type="a">
+<li>포기한다고 재차 말하면 정답을 알려주고 게임을 끝냅니다.<br>
+</li>
+</ol></li>
+<li>그 외 게임과 무관한 내용은 답변하지 않도록 합니다.</li>
+</ol></li>
+</ol>
+</div>
+</div></li>
+<li><p>게임의 컨셉만 간결하게</p>
+<ul>
+<li><p>첫 번째 버전은 구조적으로 정리는 되어 있었지만, 내용이 길어서인지 모델이 내용을 놓치는 경우가 많았습니다.</p></li>
+<li><p>두 번째에는 assistant의 역할만 간단히 작성하여 전달했습니다. 추가로, 유저 입력 앞에 접두어를 붙여 정답을 추측하는 상황으로 판단하도록 유도했습니다.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>당신은 <span class="op">&lt;</span>imitoru<span class="op">&gt;</span>라는 게임의 진행자입니다.</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>보통 유저는 답을 말하지만, 종종 게임에 관한 힌트를 요청합니다. 짧지만 정중하게 대답해주세요.</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>힌트를 알려줄 때에는 반드시 정답을 감춰주세요. 절대 정답을 말해서는 안 됩니다.</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>{<span class="st">'role'</span>: <span class="st">'system'</span>, <span class="st">'content'</span>: system_content}</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>{<span class="st">'role'</span>: <span class="st">'user'</span>, <span class="st">'content'</span>: <span class="st">'답: '</span><span class="op">+</span>user_input}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>게임의 컨셉과 진행 방식을 게임 설명서 형식으로 작성해 두고, 모델이 필요할 때 호출할 수 있도록 했습니다.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 게임 방법</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>숨겨져 있는 오늘의 단어를 맞추는 게임입니다. 정답으로 추측되는 단어를 맞히면 정답 여부를 알 수 있습니다. 정답이 아닌 경우, 정답에 얼마나 가까운 정도와 순위를 알 수 있습니다. 정답에 가까운 정도는 단어의 의미, 문맥, 단어의 언어적 특성 등에 따라 결정됩니다. 추측한 단어의 정답에 가까운 정도와 순위를 참고하여 계속 정답을 맞혀보세요.</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 힌트에 대해</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>만약 정답이 어렵거나 게임 규칙을 이해하기 어렵다면 힌트를 요청할 수 있습니다. 정답에 대한 예문, 정답과 어떤 단어의 의미나 문법적 공통점 등 다양한 정보를 들을 수 있습니다. 힌트 내용에 정답은 포함되어 있지 않습니다.</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">#### '가까운 정도와 순위'에 대해</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>'근접도'는 정답 단어와의 유사도를 -100에서 +100까지 숫자로 표시합니다. '순위'는 데이터베이스에서 가까운 정도의 상대적인 위치로, 3순위에서 1000순위까지 나타냅니다. '가까운 정도('sim')가 100인 단어가 정답입니다.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul></li>
+</ol>
+</section>
+</section>
+<section id="주요-결과" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="주요-결과">3. 주요 결과</h2>
+<ol type="1">
+<li>접두어 사용으로 쉬워진 의도 파악</li>
+</ol>
+<p>모델이 갑자기 ’묻다’이라는 단어를 들으면 어떻게 대응할까요? 오늘의 정답 단어가 ’묻다’이라고 추측하는 상황일 수도 있고, 게임에 대해 질문하고 싶은 것일 수도 있습니다. 이런 단어 외에도 여러 단어들이 다양한 의도로 해석될 가능성이 있습니다. 그렇다고 해서 정답을 외칠 때마다 ’정답은 &lt;묻다&gt;인가요?’라고 물어보기에는 자연스럽지도 않고, 사용하기 불편합니다.</p>
+<p>접두어로 <code>답:</code>을 추가한 것만으로 의도에 어긋나는 답변을 하는 경우가 크게 줄었습니다. 힌트를 요청할 때에도 대체로 의도를 잘 파악합니다. 힌트를 요청할 때에는 비교적 길고 완성된 문장으로 말하게 되므로, <code>답:</code>이라는 글자에 크게 집중하지 않는 것 같습니다. 간혹 힌트를 요청하는 문장에서 일부 단어를 평가하는 일이 벌어지기는 하지만, 가장 빠르고 정확한 대응이 필요한 ‘추측’ 작업을 잘 수행할 수 있게 되었습니다.</p>
+<div class="page-columns page-full"><p>작업해야 할 내용을 명확히 전달하기 위해 접두어를 사용하는 경우는 일반적입니다. 하지만 이번 프로젝트에서는 모델이 사용자의 입력을 통해 작업 내용을 정해야 하는 상황이 있어 처음부터 사용하지는 않았습니다. 하지만 입력이 조금만 길어지면 다른 프롬프트를 곧잘 무시하는 특성 덕분에<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> 복잡한 체인이나 파이프라인 설계 없이 간편하게 만들 수 있었습니다.</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;사용자가 이러한 특성을 악용해 의도에 어긋나는 입력을 시도하는 것을 방지하기 위해 post-prompting, sandwitch defense과 같은 방어 전략을 사용하기도 합니다. <a href="https://learnprompting.org/docs/category/-defensive-measures">Learn Prompting</a>에서 다양한 방어 전략을 보실 수 있습니다.</p></li></div></div>
+<ol start="2" type="1">
+<li>함수를 활용한 정확한 정보 전달</li>
+</ol>
+<p>사전 프롬프트로 진행에 필요한 데이터, 특히 정답이나 규칙을 전달할 경우, 잘못된 대답을 하는 경우가 많았습니다. 정답이 아닌데 정답이라고 설명하는 것은 치명적인 오류였습니다. 아무래도 사용자 입력과 함수 수행을 위한 프롬프트가 쌓이면서 처음 전달했던 게임 정보에 집중하지 못하는 것 같았습니다. 정답이나 규칙을 함수로 불러올 수 있게 바꾼 뒤로, 응답을 만드는 과정에서 정보를 다시 한 번 확인하여 내보내는 모습을 확인할 수 있었습니다.</p>
+<p>사용할 수 있는 함수를 다양하게 제공하면서 프롬프트도 간결하게 만들 수 있었습니다. 필요한 정보는 함수로 호출하여 받기 때문에, 사전 프롬프트에서는 기본적인 정보만 제공하도록 바뀌었습니다. 전체적으로 프롬프트의 양을 줄일 수 있었는데요, 현재는 게임 규칙을 한 번에 불러오도록 하고 있지만 제목에 따라 나누어 불러올 수 있게 하면 조금 더 줄일 수 있을 것 같습니다.</p>
+</section>
+<section id="마무리" class="level2">
+<h2 class="anchored" data-anchor-id="마무리">4. 마무리</h2>
+<p>프로젝트 초반에는 LLM을 내 마음대로 조종하기 위한 디테일한 프롬프트와 파이프라인을 주로 고민했습니다. 아무리 상세하게 설명해도 지시를 잘 이해하지 못하고 잘못된 일을 하기 일쑤였으니까요. (말 안 듣는 자식을 항상 타박만 하고 정작 자식과 소통할 줄 모르는 부모의 모습…) 하지만 여러 함수를 제공하고 아주 짧은 접두어를 붙여 간결하게 정리가 되었습니다. 결과물이 나온 것도 중요하지만, LLM과 원만하게 소통하는 방법을 배운 게 가장 큰 성과라는 생각이 듭니다.</p>
+
+
+</section>
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
