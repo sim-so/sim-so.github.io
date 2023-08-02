@@ -1,1 +1,1 @@
-Sitemap: https://github.com/sim-so/sim-so.github.io/sitemap.xml
+Sitemap: https://sim-so.github.io/sitemap.xml
