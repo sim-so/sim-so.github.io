@@ -15,11 +15,12 @@ website:
         href: https://github.com/
       - icon: twitter
         href: https://twitter.com
-  favicon: pavicon.png
+  site-url: https://sim-so.github.io
+  favicon: docs/images/pavicon.png
   open-graph: 
-    image: https://raw.githubusercontent.com/sim-so/sim-so.github.io/main/1200x630.png
+    image: docs/images/1200x630.png
   twitter-card: 
-    image: https://raw.githubusercontent.com/sim-so/sim-so.github.io/main/1200x630.png
+    image: docs/images/1200x630.png
 
 format:
   html:
