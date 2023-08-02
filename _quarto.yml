@@ -17,9 +17,9 @@ website:
         href: https://twitter.com
   favicon: pavicon.png
   open-graph: 
-    image: 1200x630.png
+    image: https://github.com/sim-so/sim-so.github.io/blob/663deb028064b501b81b8a29c7b8466db3ddb715/1200x630.png
   twitter-card: 
-    image: 1200x630.png
+    image: https://github.com/sim-so/sim-so.github.io/blob/663deb028064b501b81b8a29c7b8466db3ddb715/1200x630.png
 
 format:
   html:
