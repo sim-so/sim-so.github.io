@@ -18,6 +18,8 @@ website:
   favicon: pavicon.png
   open-graph: 
     image: 1200x630.png
+  twitter-card: 
+    image: 1200x630.png
 
 format:
   html:
