@@ -1,33 +1,37 @@
 project:
   type: website
-  output-dir: docs
+  output-dir: _site
 
 website:
-  title: "sim-so.github.io"
+  title: "Line by Line"
   navbar:
     left:
       - text: "Home"
         file: index.qmd
-      - blog/index.qmd
+      - posts.qmd
+      - gallery.qmd
+      - notes.qmd
       - about.qmd
     right:
       - icon: github
-        href: https://github.com/
-      - icon: twitter
-        href: https://twitter.com
+        href: https://github.com/sim-so
+      # - icon: twitter
+      #   href: https://twitter.com
   site-url: https://sim-so.github.io
-  favicon: docs/images/pavicon.png
+  favicon: images/pavicon.png
   open-graph: 
-    image: docs/images/1200x630.png
+    image: images/1200x630.png
   twitter-card: 
-    image: docs/images/1200x630.png
+    image: images/1200x630.png
+      
 
 format:
   html:
-    theme: cosmo
-    css: styles.css
-
+    toc: true
+    theme: 
+      light: [cosmo, custom.scss]
+      # dark: [cosmo, custom-dark.scss]
+# css: styles.css
+    
 execute:
   freeze: auto
-
-

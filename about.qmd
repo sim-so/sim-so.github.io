@@ -1,8 +1,8 @@
 ---
-title: "about"
+title: "About"
 image: profile.png
 about:
-  template: jolla
+  template: broadside
   links:
     # - icon: twitter
     #   text: Twitter

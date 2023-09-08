@@ -1,1 +1,7 @@
 /* css styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300&display=swap');
+
+:root {
+    --bs-font-sans-serif: -apple-system, "Noto Sans KR", BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}

@@ -1,0 +1,16 @@
+---
+title: "Notes"
+listing:
+  contents: notes
+  sort: "date desc"
+  type: default
+  categories: true
+  sort-ui: false
+  filter-ui: false
+  max-description-length: 50
+  image-height: 10em
+page-layout: full
+title-block-banner: false
+
+---
+자주 찾는 정보, cheet-sheet를 추가할 예정입니다.

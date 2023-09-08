@@ -1,14 +1,51 @@
 ---
 title: "Line by Line"
 listing:
-  contents: blog/posts
-  sort: "date desc"
-  type: default
-  categories: true
-  sort-ui: false
-  filter-ui: false
+  - id: home-posts
+    contents: posts
+    type: default
+    sort: "date desc"
+    fields: [title, categories, date, image]
+    sort-ui: false
+    filter-ui: false
+  - id: home-gallery
+    contents: gallery
+    fields: [title, categories, image]
+    type: grid
+    sort: "date desc"
+    max-items: 4
+    grid-columns: 2
+    sort-ui: false
+    filter-ui: false
+  - id: home-notes
+    contents: notes
+    type: table
+    sort: "date desc"
+    sort-ui: false
+    filter-ui: false
+
+toc: false
+anchor-sections: false
 page-layout: full
+title-block-style: default
 title-block-banner: true
 ---
 
+Welcome!
 
+:::::{.grid}
+::::{.g-col-12 .g-col-md-8}
+
+## Posts
+:::{#home-posts}
+:::
+
+::::
+::::{.g-col-12 .g-col-md-4}
+
+## Projects
+:::{#home-gallery}
+:::
+
+::::
+:::::

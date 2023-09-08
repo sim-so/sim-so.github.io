@@ -1,0 +1,52 @@
+/*-- scss:defaults --*/
+
+$h2-font-size:      2rem !default;
+
+//
+// Color system
+//
+
+$white:    #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #868e96 !default;
+$gray-700: #495057 !default;
+$gray-800: #373a3c !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+
+// Custom theme color
+$forest-700:    #035038 !default;
+$forest-800:    #024330 !default;
+$forest-900:    #013728 !default;
+$forest:        #00281F !default;
+
+$custom-primary:  $forest-900 !default;
+
+$light:         $gray-100 !default;
+$dark:          $gray-800 !default;
+
+// $min-contrast-ratio:   2.6 !default;
+
+// Body
+
+// Title
+$title-banner-color:              $light;
+// $title-banner-bg:                 $white;
+
+// Navs
+$nav-tabs-border-color:             $white !default;
+$card-border-color:                 $nav-tabs-border-color !default;
+
+
+// Navbar
+$navbar-bg:                     rgba($forest-800, 1) !default;
+$navbar-hl:                     rgba($white, .95) !default;
+$navbar-light-color:            rgba($white, .7) !default;
+
+// Toc
+$toc-color:          rgba($custom-primary, .9) !default;
+$toc-active-border:  rgba($custom-primary, .9) !default;
