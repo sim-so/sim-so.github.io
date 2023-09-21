@@ -88,14 +88,7 @@
     "href": "index.html#posts",
     "title": "Line by Line",
     "section": "Posts",
-    "text": "Posts\n\n\n\n\n  \n\n\n\n\nRAG: Retrieval-Augmented Generation\n\n\nRAG 모델 구조 살펴보기\n\n\n\n\nNLP\n\n\n \n\n\n\n\nSep 21, 2023\n\n\n\n\n\n\n  \n\n\n\n\nopenai Function Calling 활용하기\n\n\n\n\n\n\n\nNLP\n\n\n \n\n\n\n\nJul 30, 2023\n\n\n\n\n\n\n  \n\n\n\n\nTransformers Agent, 직접 확인해보기\n\n\n3가지 LLM을 활용한 Agent 실습 (+ 한국어 입력)\n\n\n\n\nNLP\n\n\n \n\n\n\n\nJul 30, 2023\n\n\n\n\n\n\n  \n\n\n\n\nsemantle with GPT-3.5\n\n\n게임을 진행하기 위한 function call과 프롬프트\n\n\n\n\nNLP\n\n\n \n\n\n\n\nJul 25, 2023\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "index.html#projects",
-    "href": "index.html#projects",
-    "title": "Line by Line",
-    "section": "Projects",
-    "text": "Projects\n\n\n\n\n\nNo matching items"
+    "text": "Posts\n\n\n\n\n  \n\n\n\n\nRAG: Retrieval-Augmented Generation\n\n\nRAG 모델 구조 살펴보기\n\n\n\n\nNLP\n\n\n \n\n\n\n\nSep 21, 2023\n\n\n\n\n\n\n  \n\n\n\n\nopenai Function Calling 활용하기\n\n\n\n\n\n\n\nNLP\n\n\n \n\n\n\n\nJul 30, 2023\n\n\n\n\n\n\n  \n\n\n\n\nTransformers Agent, 직접 확인해보기\n\n\n3가지 LLM을 활용한 Agent 실습 (+ 한국어 입력)\n\n\n\n\nNLP\n\n\n \n\n\n\n\nJul 30, 2023\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/2023-07-25_semantle/index.html",
