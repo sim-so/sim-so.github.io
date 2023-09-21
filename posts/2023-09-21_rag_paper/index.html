@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="sim-so">
+<meta name="dcterms.date" content="2023-09-21">
 
-<title>Line by Line - Posts</title>
+<title>Line by Line - RAG: Retrieval-Augmented Generation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,25 +25,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./images/pavicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/pavicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -62,48 +62,15 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<meta property="og:title" content="Line by Line - Posts">
-<meta property="og:image" content="https://sim-so.github.io/images/1200x630.png">
+<meta property="og:title" content="Line by Line - RAG: Retrieval-Augmented Generation">
+<meta property="og:description" content="RAG 모델 구조 살펴보기">
+<meta property="og:image" content="https://sim-so.github.io/posts/2023-09-21_rag_paper/images/1200x630.png">
 <meta property="og:site-name" content="Line by Line">
-<meta property="og:image:height" content="630">
-<meta property="og:image:width" content="1200">
-<meta name="twitter:title" content="Line by Line - Posts">
-<meta name="twitter:image" content="https://sim-so.github.io/images/1200x630.png">
-<meta name="twitter:image-height" content="630">
-<meta name="twitter:image-width" content="1200">
+<meta name="twitter:title" content="Line by Line - RAG: Retrieval-Augmented Generation">
+<meta name="twitter:description" content="RAG 모델 구조 살펴보기">
+<meta name="twitter:image" content="https://sim-so.github.io/posts/2023-09-21_rag_paper/images/1200x630.png">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -114,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Line by Line</span>
     </a>
   </div>
@@ -125,23 +92,23 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
+    <a class="nav-link" href="../../index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./posts.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="../../posts.html" rel="" target="">
  <span class="menu-text">Posts</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./gallery.html" rel="" target="">
+    <a class="nav-link" href="../../gallery.html" rel="" target="">
  <span class="menu-text">Gallery</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./notes.html" rel="" target="">
+    <a class="nav-link" href="../../notes.html" rel="" target="">
  <span class="menu-text">Notes</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
+    <a class="nav-link" href="../../about.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -159,183 +126,157 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">RAG: Retrieval-Augmented Generation</h1>
+            <p class="subtitle lead">RAG 모델 구조 살펴보기</p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">NLP</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>sim-so </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 21, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="NLP">NLP <span class="quarto-category-count">(4)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#rag란" id="toc-rag란" class="nav-link active" data-scroll-target="#rag란">RAG란?</a>
+  <ul class="collapse">
+  <li><a href="#rag의-구조" id="toc-rag의-구조" class="nav-link" data-scroll-target="#rag의-구조">RAG의 구조</a></li>
+  <li><a href="#retriever-dpr" id="toc-retriever-dpr" class="nav-link" data-scroll-target="#retriever-dpr">Retriever: DPR</a></li>
+  </ul></li>
+  <li><a href="#rag-학습과-답변-생성" id="toc-rag-학습과-답변-생성" class="nav-link" data-scroll-target="#rag-학습과-답변-생성">RAG 학습과 답변 생성</a>
+  <ul class="collapse">
+  <li><a href="#rag-학습하기" id="toc-rag-학습하기" class="nav-link" data-scroll-target="#rag-학습하기">RAG 학습하기</a></li>
+  <li><a href="#rag-token-vs-rag-sequence" id="toc-rag-token-vs-rag-sequence" class="nav-link" data-scroll-target="#rag-token-vs-rag-sequence">RAG Token vs RAG Sequence</a></li>
+  </ul></li>
+  <li><a href="#참고" id="toc-참고" class="nav-link" data-scroll-target="#참고">참고</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Posts</h1>
-</div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-</header>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
+<blockquote class="blockquote">
+<p><a href="http://arxiv.org/abs/2005.11401">Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (2021)</a></p>
+</blockquote>
+<section id="rag란" class="level2">
+<h2 class="anchored" data-anchor-id="rag란">RAG란?</h2>
+<p><strong>RAG</strong>는 쿼리와 관련 있는 문서를 검색하고 문서의 정보를 활용하여 텍스트를 생성하는 모델입니다.</p>
+<section id="rag의-구조" class="level3">
+<h3 class="anchored" data-anchor-id="rag의-구조">RAG의 구조</h3>
+<p><img src="img_rag.png" class="img-fluid"></p>
+<p>RAG 모델은 <em>Retriever</em>와 <em>Generator</em>라는 두 개의 모델이 결합되어 있습니다.</p>
+<ul>
+<li><strong>Retriever</strong>
+<ul>
+<li>쿼리와 문서를 벡터 표현으로 바꾸고, 문서 저장소에서 쿼리와 관련 있는 문서를 찾아냅니다.</li>
+<li>문서 정보를 잘 함축하는 BERT 기반의 인코더 모델을 사용합니다.</li>
+<li>논문에서는 두 개의 BERT 모델을 사용하는 <em>DPR</em> 구조를 사용했습니다. 두 인코더 모델이 쿼리와 문서를 각각 인코딩합니다.</li>
+</ul></li>
+<li><strong>Generator</strong>
+<ul>
+<li>쿼리와 문서가 결합된 입력 텍스트를 받아 출력을 생성합니다.</li>
+<li>문장을 생성할 수 있는 seq2seq 모델을 사용합니다.</li>
+<li>논문에서는 BART 모델을 사용했습니다.</li>
+</ul></li>
+</ul>
+</section>
+<section id="retriever-dpr" class="level3">
+<h3 class="anchored" data-anchor-id="retriever-dpr">Retriever: DPR</h3>
+<p><strong>Retriever</strong>은 DPR을 기반으로 설계되었습니다. DPR은 두 개의 인코더로 구성됩니다.</p>
+<ol type="1">
+<li><em>document encoder</em> 문서 인코더
+<ul>
+<li>문서를 문서 임베딩으로 만듭니다.</li>
+<li>논문에서는 FAISS 문서 저장소를 사용해 문서 인덱스를 만들었습니다.</li>
+</ul></li>
+<li><em>query encoder</em> 쿼리 인코더
+<ul>
+<li>쿼리를 임베딩으로 만듭니다.</li>
+</ul></li>
+</ol>
+<p>이렇게 서로 다른 인코더로 만든 쿼리 벡터와 문서 벡터 간 내적을 계산하고, 쿼리 벡터와의 내적이 최대가 되는 문서 k개를 가져옵니다. 쿼리와 문서에 서로 다른 인코더를 사용하면 어떤 점이 좋을까요? 올바른 쿼리-문서 쌍이 더 높은 내적 값을 가질 수 있도록 쿼리와 문서 인코더를 훈련시킬 수 있습니다.</p>
+</section>
+</section>
+<section id="rag-학습과-답변-생성" class="level2">
+<h2 class="anchored" data-anchor-id="rag-학습과-답변-생성">RAG 학습과 답변 생성</h2>
+<section id="rag-학습하기" class="level3">
+<h3 class="anchored" data-anchor-id="rag-학습하기">RAG 학습하기</h3>
+<p>두 개의 인코더와 한 개의 생성 모델까지 모델이 총 3개나 결합된 모델을 어떻게 학습할까요? 다행히 생각보다는 쉽게 학습할 수 있습니다.</p>
+<ol type="1">
+<li><strong>사전훈련된 모델</strong>을 가져와 retriever와 generator로 사용합니다.
+<ul>
+<li>retriever에 사용할 두 encoder는 사전훈련된 DPR 모델에서 가져옵니다.</li>
+</ul></li>
+<li><strong>쿼리 인코더와 생성 모델만 fine-tuning</strong> 합니다.
+<ul>
+<li>문서 인코더를 학습하게 되면 문서 인덱스도 매번 업데이트 해야하여 큰 비용이 발생합니다. 또한 문서 인코더 학습이 성능 향상에 꼭 필요하지 않아 논문에서도 제외했다고 합니다.</li>
+</ul></li>
+<li>input-output 쌍으로 구성된 데이터셋으로 <strong>retriever와 encoder를 한 번에 학습</strong>합니다.
+<ul>
+<li>retriever 학습을 위해 질문-문서 쌍 데이터를 따로 준비하지 않습니다.</li>
+<li>모델 output과 실제 output 간 marginal log-likelihood를 최소화하도록 가중치를 업데이트합니다.</li>
+</ul></li>
+</ol>
+</section>
+<section id="rag-token-vs-rag-sequence" class="level3">
+<h3 class="anchored" data-anchor-id="rag-token-vs-rag-sequence">RAG Token vs RAG Sequence</h3>
+<p>retriever가 쿼리와 관련 있는 문서를 여러 개 뽑아올 수 있습니다. 원하는 개수의 답변을 만들기 위한 두 가지 방법이 있습니다.</p>
+<ul>
+<li><strong>RAG Sequence</strong>
+<ul>
+<li>쿼리-문서 쌍마다 답변 시퀀스를 생성하고, 답변 시퀀스를 모두 합쳐(marginalize) 최종 출력 시퀀스를 만듭니다.</li>
+</ul></li>
+<li><strong>RAG Token</strong>
+<ul>
+<li>문서를 한 번에 참조하여 답변 토큰을 하나하나 생성합니다.</li>
+<li>retriever가 반환한 문서 임베딩과 쿼리 임베딩을 배치 행렬 곱(bmm)하여 얻은 점수(doc_score)를 얻습니다. 이 점수를 디코딩 과정에 반영합니다.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="참고" class="level2">
+<h2 class="anchored" data-anchor-id="참고">참고</h2>
+<ul>
+<li>트랜스포머를 활용한 자연어 처리 2판</li>
+<li><a href="https://huggingface.co/docs/transformers/v4.33.2/en/model_doc/rag">Hugging Face Transformers - RAG</a></li>
+<li><a href="http://arxiv.org/abs/2005.11401">Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (2021)</a></li>
+</ul>
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="NLP" data-listing-date-sort="1695254400000" data-listing-file-modified-sort="1695287005591" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
-<div class="thumbnail">
-<p><a href="./posts/2023-09-21_rag_paper/index.html"> <img src="./posts/2023-09-21_rag_paper/img_rag.png" class="thumbnail-image" style="height: 10em;"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/2023-09-21_rag_paper/index.html">
-<h3 class="no-anchor listing-title">
-RAG: Retrieval-Augmented Generation
-</h3>
-<div class="listing-subtitle">
-RAG 모델 구조 살펴보기
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('NLP'); return false;">
-NLP
-</div>
-</div>
-<a href="./posts/2023-09-21_rag_paper/index.html">
-<div class="listing-description">
-Retrieval-Augmented…
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/2023-09-21_rag_paper/index.html">
-<div class="listing-date">
-Sep 21, 2023
-</div>
-<div class="listing-author">
-sim-so
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="NLP" data-listing-date-sort="1690675200000" data-listing-file-modified-sort="1695287005583" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
-<div class="thumbnail">
-<p><a href="./posts/2023-07-27_function-calling/index.html"> <div class="listing-item-img-placeholder card-img-top" style="height: 10em;">&nbsp;</div> </a></p>
-</div>
-<div class="body">
-<a href="./posts/2023-07-27_function-calling/index.html">
-<h3 class="no-anchor listing-title">
-openai Function Calling 활용하기
-</h3>
-<div class="listing-subtitle">
 
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('NLP'); return false;">
-NLP
-</div>
-</div>
-<a href="./posts/2023-07-27_function-calling/index.html">
-<div class="listing-description">
-openai api로 최신 GPT 모델을 사용한다면…<sup></sup>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/2023-07-27_function-calling/index.html">
-<div class="listing-date">
-Jul 30, 2023
-</div>
-<div class="listing-author">
-sim-so
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="NLP" data-listing-date-sort="1690675200000" data-listing-file-modified-sort="1695287005591" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
-<div class="thumbnail">
-<p><a href="./posts/2023-07-30_hf-agent-01/index.html"> <img src="./posts/2023-07-30_hf-agent-01/Pasted image 20230730234729.png" class="thumbnail-image" style="height: 10em;"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/2023-07-30_hf-agent-01/index.html">
-<h3 class="no-anchor listing-title">
-Transformers Agent, 직접 확인해보기
-</h3>
-<div class="listing-subtitle">
-3가지 LLM을 활용한 Agent 실습 (+ 한국어 입력)
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('NLP'); return false;">
-NLP
-</div>
-</div>
-<a href="./posts/2023-07-30_hf-agent-01/index.html">
-<div class="listing-description">
-Hugging Face에서 제공하는 Transformers Agent 예제 코드를 직접…
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/2023-07-30_hf-agent-01/index.html">
-<div class="listing-date">
-Jul 30, 2023
-</div>
-<div class="listing-author">
-sim-so
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="NLP" data-listing-date-sort="1690243200000" data-listing-file-modified-sort="1695287005579" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9">
-<div class="thumbnail">
-<p><a href="./posts/2023-07-25_semantle/index.html"> <p class="card-img-top"><img src="posts/2023-07-25_semantle/Screenshot_01.png" alt="demo" style="height: 10em;"  class="thumbnail-image card-img"/></p> </a></p>
-</div>
-<div class="body">
-<a href="./posts/2023-07-25_semantle/index.html">
-<h3 class="no-anchor listing-title">
-semantle with GPT-3.5
-</h3>
-<div class="listing-subtitle">
-게임을 진행하기 위한 function call과 프롬프트
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('NLP'); return false;">
-NLP
-</div>
-</div>
-<a href="./posts/2023-07-25_semantle/index.html">
-<div class="listing-description">
-GPT와 원만하게 대화로 해결했습니다. 🤝
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/2023-07-25_semantle/index.html">
-<div class="listing-date">
-Jul 25, 2023
-</div>
-<div class="listing-author">
-sim-so
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -2,25 +2,27 @@
   {
     "listing": "/posts.html",
     "items": [
-      "/posts/2023-07-30_hf-agent-01/index.html",
+      "/posts/2023-09-21_rag_paper/index.html",
       "/posts/2023-07-27_function-calling/index.html",
+      "/posts/2023-07-30_hf-agent-01/index.html",
       "/posts/2023-07-25_semantle/index.html"
     ]
   },
   {
-    "listing": "/gallery.html",
-    "items": []
-  },
-  {
     "listing": "/index.html",
     "items": [
-      "/posts/2023-07-30_hf-agent-01/index.html",
+      "/posts/2023-09-21_rag_paper/index.html",
       "/posts/2023-07-27_function-calling/index.html",
+      "/posts/2023-07-30_hf-agent-01/index.html",
       "/posts/2023-07-25_semantle/index.html"
     ]
   },
   {
     "listing": "/notes.html",
+    "items": []
+  },
+  {
+    "listing": "/gallery.html",
     "items": []
   }
 ]
