@@ -6,8 +6,10 @@ listing:
     type: default
     sort: "date desc"
     fields: [title, categories, date, image]
+    max-items: 3
     sort-ui: false
     filter-ui: false
+    image-height: 10em
   - id: home-gallery
     contents: gallery
     fields: [title, categories, image]
@@ -33,6 +35,11 @@ title-block-banner: true
 
 Welcome!
 
+## Posts
+:::{#home-posts}
+:::
+
+<!-- 
 :::::{.grid}
 ::::{.g-col-12 .g-col-md-8}
 
@@ -48,4 +55,4 @@ Welcome!
 :::
 
 ::::
-:::::
+::::: -->
