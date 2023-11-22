@@ -2,38 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://sim-so.github.io/posts.html</loc>
-    <lastmod>2023-09-21T09:07:51.626Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sim-so.github.io/posts/2023-07-30_hf-agent-01/index.html</loc>
-    <lastmod>2023-09-21T09:07:49.002Z</lastmod>
+    <lastmod>2023-11-22T12:49:04.847Z</lastmod>
   </url>
   <url>
     <loc>https://sim-so.github.io/posts/2023-09-21_rag_paper/index.html</loc>
-    <lastmod>2023-09-21T09:07:46.378Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sim-so.github.io/index.html</loc>
-    <lastmod>2023-09-21T09:07:45.058Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sim-so.github.io/posts/2023-07-25_semantle/index.html</loc>
-    <lastmod>2023-09-21T09:07:47.110Z</lastmod>
+    <lastmod>2023-11-22T12:49:04.103Z</lastmod>
   </url>
   <url>
     <loc>https://sim-so.github.io/posts/2023-07-27_function-calling/index.html</loc>
-    <lastmod>2023-09-21T09:07:47.958Z</lastmod>
+    <lastmod>2023-11-22T12:49:03.155Z</lastmod>
   </url>
   <url>
-    <loc>https://sim-so.github.io/about.html</loc>
-    <lastmod>2023-09-21T09:07:49.342Z</lastmod>
+    <loc>https://sim-so.github.io/posts/2023-07-25_semantle/index.html</loc>
+    <lastmod>2023-11-22T12:49:02.127Z</lastmod>
   </url>
   <url>
-    <loc>https://sim-so.github.io/notes.html</loc>
-    <lastmod>2023-09-21T09:07:50.134Z</lastmod>
+    <loc>https://sim-so.github.io/index.html</loc>
+    <lastmod>2023-11-22T12:49:01.427Z</lastmod>
   </url>
   <url>
     <loc>https://sim-so.github.io/gallery.html</loc>
-    <lastmod>2023-09-21T09:07:50.870Z</lastmod>
+    <lastmod>2023-11-22T12:49:00.963Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sim-so.github.io/about.html</loc>
+    <lastmod>2023-11-22T12:49:01.651Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sim-so.github.io/posts/2023-07-30_hf-agent-01/index.html</loc>
+    <lastmod>2023-11-22T12:49:03.767Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sim-so.github.io/notes.html</loc>
+    <lastmod>2023-11-22T12:49:04.343Z</lastmod>
   </url>
 </urlset>
