@@ -1,0 +1,16 @@
+---
+title: "데이터 분석가 직무 인터뷰 회고 001"
+subtitle: "심경과 반성을 중심으로"
+author: "sim-so"
+date: "2023-11-11"
+categories: [Career]
+tags: 
+  - Career
+  - Interview
+  - Data Analyst
+reference-location: margin
+citation-location: margin
+draft: true
+---
+
+## 오늘의 인터뷰
